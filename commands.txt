@@ -1,0 +1,30 @@
+# ================== Команди для проєкту Hardhat (Платіжна система з комісією) ==================
+
+# 1. Ініціалізація нового проєкту Node.js
+npm init -y
+
+# 2. Встановлення Hardhat як залежності для розробки (+ toolbox: ethers, chai, ignition тощо)
+npm install --save-dev hardhat@^2.26.0 @nomicfoundation/hardhat-toolbox@^6.0.0
+
+# 3. Створення та початкове налаштування проєкту Hardhat
+#    (обрати "Create a JavaScript project"; у цьому проєкті вже готові hardhat.config.js, contracts/, test/, ignition/)
+npx hardhat init
+
+# 4. Компіляція смартконтрактів
+npx hardhat compile
+
+# 5. Запуск тестів смартконтрактів
+npx hardhat test
+
+# 6. Запуск локального блокчейну (залишити відкритим у окремому терміналі)
+npx hardhat node
+
+# 7. Деплой контрактів у блокчейн за допомогою Ignition (в іншому терміналі)
+npx hardhat ignition deploy ignition/modules/PaymentSystem.js --network localhost
+
+# 8. Експорт адрес та ABI у папку python/ (після кожного нового деплою)
+node scripts/export-to-python.js
+
+# Якщо потрібно задеплоїти заново на свіжій ноді — видалити старий стан Ignition:
+#   rm -rf ignition/deployments         (Linux/macOS)
+#   rmdir /s /q ignition\deployments    (Windows cmd)

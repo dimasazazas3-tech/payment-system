@@ -1,0 +1,26 @@
+# ================== Консольні команди для Python-частини ==================
+# Виконувати з папки python/ (tkinter входить до стандартної поставки Python на Windows/macOS;
+# на Linux: sudo apt install python3-tk)
+
+# 1. Перехід у папку
+cd python
+
+# 2. Створення віртуального середовища .venv
+python -m venv .venv
+
+# 3. Активація
+#    Windows (cmd):         .venv\Scripts\activate
+#    Windows (PowerShell):  .venv\Scripts\Activate.ps1
+#    Linux / macOS:         source .venv/bin/activate
+
+# 4. Встановлення бібліотек для роботи з блокчейном і смартконтрактами
+pip install web3
+
+# 5. Збереження бібліотек у requirements.txt
+pip freeze > requirements.txt
+
+# 6. (на іншому комп'ютері) встановлення з requirements.txt
+pip install -r requirements.txt
+
+# 7. Запуск графічного інтерфейсу (hardhat node має бути запущена, контракти задеплоєні)
+python app.py
